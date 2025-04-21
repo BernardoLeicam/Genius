@@ -76,6 +76,7 @@ public class Main {
             contador++;
         }
         System.out.println("    GAME OVER");
+        contador = contador - 2;
         System.out.println("Voce acertou: " + contador + " vezes");
     }
 }
