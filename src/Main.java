@@ -3,53 +3,60 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws InterruptedException {
 
+        int v[] = new int[1000000];
+        int c = 0;
+        int c2 = 0;
         int contador = 1;
         boolean acertou = true;
         while (acertou == true) {
             if (acertou == false) {
                 break;
             }
-            int v[] = new int[1000000];
-            int c2 = 0;
-            for (int c = 0; c < contador; c++) {
+
+            while (c < contador) {
                 // Sorteio de numero
                 double ale = Math.random();
                 int num = (int) (1 + ale * 4);
-
-                for (int c1 = 0; c1 < 8; c1++) System.out.println();
-
-                if (num == 1) {
-                    System.out.println("🟨");
-                } else if (num == 2) {
-                    System.out.println("🟦");
-                } else if (num == 3) {
-                    System.out.println("🟩");
-                } else if (num == 4) {
-                    System.out.println("🟥");
-                }
-
                 v[c2] = num;
-                c2++;
-                if (contador <= 10){
-                    Thread.sleep(4000);
-                }else if (contador <= 15){
-                    Thread.sleep(2000);
-                } else if (contador <= 25) {
-                    Thread.sleep(1000);
-                } else if (contador > 25) {
-                    Thread.sleep(500);
+                for (int c1 = 0; c1 < 8; c1++) System.out.println();
+                int c5 = 0;
+                while (c5 < contador) {
+                    if (c5 >= contador){
+                        break;
+                    }
+                    if (v[c5] == 1) {
+                        System.out.println("🟨");
+                    } else if (v[c5] == 2) {
+                        System.out.println("🟦");
+                    } else if (v[c5] == 3) {
+                        System.out.println("🟩");
+                    } else if (v[c5] == 4) {
+                        System.out.println("🟥");
+                    }
+                    if (contador <= 10){
+                        Thread.sleep(2000);
+                    }else if (contador <= 15){
+                        Thread.sleep(2000);
+                    } else if (contador <= 25) {
+                        Thread.sleep(1000);
+                    } else {
+                        Thread.sleep(500);
+                    }
+                    for (int cont = 0; cont < 50; cont++) System.out.println();
+                    c5++;
                 }
-                for (int cont = 0; cont < 50; cont++) System.out.println();
 
+                c2++;
+                c++;
             }
             System.out.println("1   =  🟨");
             System.out.println("2   =  🟦");
             System.out.println("3   =  🟩");
             System.out.println("4   =  🟥\n");
             boolean sn = true;
-            c2 = 0;
             int c3 = 1;
             int teste = 1;
+            int c4 = 0;
             while (sn == true) {
 
 
@@ -61,9 +68,9 @@ public class Main {
                 Scanner scanner = new Scanner(System.in);
                 int cor = scanner.nextInt();
 
-                if (cor == v[c2]) {
+                if (cor == v[c4]) {
                     teste++;
-                    c2++;
+                    c4++;
                 } else {
                     acertou = false;
                     break;
@@ -71,9 +78,9 @@ public class Main {
                 c3++;
             }
             c3 = 0;
-            c2 = 0;
 
             contador++;
+
         }
         System.out.println("    GAME OVER");
         contador = contador - 2;
